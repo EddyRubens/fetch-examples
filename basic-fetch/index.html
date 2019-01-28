@@ -30,6 +30,7 @@
       return response.blob();
     })
     .then(function(myBlob) {
+      console.log(myBlob);
       var objectURL = URL.createObjectURL(myBlob);
       myImage.src = objectURL;
     })
