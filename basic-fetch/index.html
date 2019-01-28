@@ -28,12 +28,12 @@
         throw new Error('HTTP error, status = ' + response.status);
       }
       
-      return response.blob();
+      return { res: response, blob: response.blob() };
     })
-    .then(function(myBlob) {
-      console.log(response.headers); // returns a Headers{} object
-      console.log(myBlob);
-      var objectURL = URL.createObjectURL(myBlob);
+    .then(function(resAndBlob) {
+      console.log(resAndBlob.res.headers); // returns a Headers{} object
+      console.log(resAndBlob.blob);
+      var objectURL = URL.createObjectURL(resAndBlob.blob);
       myImage.src = objectURL;
     })
     .catch(function(error) {
