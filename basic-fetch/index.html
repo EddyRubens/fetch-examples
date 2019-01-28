@@ -26,7 +26,7 @@
       if (!response.ok) {
         throw new Error('HTTP error, status = ' + response.status);
       }
-      console.log(response.headers); // returns a Headers{} object
+      console.log(response); // returns a Headers{} object
       return response.blob();
     })
     .then(function(myBlob) {
